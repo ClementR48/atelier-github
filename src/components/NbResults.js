@@ -1,10 +1,11 @@
 import React from 'react';
+import { Message } from 'semantic-ui-react'
 
-const NbResults = () => {
+const NbResults = ({ countData }) => {
   return (
-    <div className="nb-results">
-      <p> La recherche a donné 121332145 résultats</p>
-    </div>
+    <Message visible className="nb-results">
+      {countData}
+    </Message>
   );
 };
 

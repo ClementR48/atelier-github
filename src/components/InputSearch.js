@@ -1,11 +1,30 @@
 import React from 'react';
-import { Input } from 'semantic-ui-react'
+import { Input, Form } from 'semantic-ui-react'
 
-const InputSearch = () => {
+const InputSearch = ({ search, setSearch, loadData }) => {
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    loadData()
+  }
+
+
   return (
-    <div className="input-search">
-      <Input icon='search' placeholder='Search...' />
-    </div>
+    
+      <Form className="input-search"
+            onSubmit={handleSubmit}>
+        <Form.Field>
+          <Input
+          value={search}
+          onChange={(event) => {
+            setSearch(event.target.value)
+          }}
+          icon='search'
+          placeholder='Search...'
+          iconPosition="left" />
+        </Form.Field>
+      </Form>
+    
   );
 };
 
